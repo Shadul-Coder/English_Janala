@@ -58,9 +58,9 @@ const displayWord = (wordList) => {
     let noLesson = document.createElement(`div`);
     noLesson.className = `Bangla-Font text-center my-5 sm:my-10`;
     noLesson.innerHTML = `
-            <img class="mx-auto" src="Images/Alert Error.png" alt="">
-            <p class="text-[#79716b] text-[11px] sm:text-base">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি</p>
-            <h1 class="text-xl font-medium sm:text-3xl">নেক্সট Lesson এ যান</h1>
+      <img class="mx-auto" src="Images/Alert Error.png" alt="">
+      <p class="text-[#79716b] text-[11px] sm:text-base">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি</p>
+      <h1 class="text-xl font-medium sm:text-3xl">নেক্সট Lesson এ যান</h1>
     `;
     parent.innerHTML = ``;
     parent.appendChild(noLesson);
@@ -72,27 +72,25 @@ const displayWord = (wordList) => {
     let box = document.createElement(`div`);
     box.className = `bg-white p-5 text-center rounded-xl space-y-3 sm:space-y-5`;
     box.innerHTML = `
-              <h1 class="mt-3 text-xl font-bold sm:mt-5 sm:text-2xl">${
-                word.word
-              }</h1>
-              <p class="text-base sm:text-xl">Meaning/Pronunciation</p>
-              <h3 class="Bangla-Font text-xl font-semibold sm:text-2xl">
-                ${word.meaning ? word.meaning : `অর্থ পাওয়া যায়নি`} / ${
+      <h1 class="mt-3 text-xl font-bold sm:mt-5 sm:text-2xl">${word.word}</h1>
+      <p class="text-base sm:text-xl">Meaning/Pronunciation</p>
+      <h3 class="Bangla-Font text-xl font-semibold sm:text-2xl">
+        ${word.meaning ? word.meaning : `অর্থ পাওয়া যায়নি`} / ${
       word.pronunciation
     }
-              </h3>
-              <div class="flex justify-between">
-                <button onclick="loadWordDetails(${
-                  word.id
-                })" class="btn bg-[#1a91ff1a] border-none rounded-lg">
-                  <i class="fa-solid fa-circle-info"></i>
-                </button>
-                <button onclick="pronounceWord('${
-                  word.word
-                }')" class="btn bg-[#1a91ff1a] border-none rounded-lg">
-                  <i class="fa-solid fa-volume-high"></i>
-                </button>
-              </div>
+      </h3>
+      <div class="flex justify-between">
+        <button onclick="loadWordDetails(${
+          word.id
+        })" class="btn bg-[#1a91ff1a] border-none rounded-lg">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+        <button onclick="pronounceWord('${
+          word.word
+        }')" class="btn bg-[#1a91ff1a] border-none rounded-lg">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+      </div>
     `;
     container.appendChild(box);
   }
@@ -129,26 +127,26 @@ const displayWordDetails = (data) => {
   let content = document.createElement(`div`);
   content.className = `border-1 border-[#edf7ff] p-5 rounded-xl space-y-3 sm:space-y-7`;
   content.innerHTML = `
-                <h1 class="font-bold sm:text-2xl">
-                  ${data.word} (<i class="fa-solid fa-microphone-lines"></i> :
-                  <span class="Bangla-Font">${data.pronunciation}</span>)
-                </h1>
-                <div class="text-[13px] space-y-1 sm:text-lg sm:space-y-3">
-                  <h3 class="font-semibold">Meaning</h3>
-                  <h1 class="Bangla-Font">${
-                    data.meaning ? data.meaning : `অর্থ পাওয়া যায়নি`
-                  }</h1>
-                </div>
-                <div class="text-[13px] space-y-1 sm:text-lg sm:space-y-3">
-                  <h5 class="font-semibold">Example</h5>
-                  <p>${data.sentence}</p>
-                </div>
-                <div class="text-[13px] space-y-1 sm:text-lg sm:space-y-3">
-                  <h5 class="Bangla-Font font-semibold">সমার্থক শব্দগুলো</h5>
-                  <div class="flex flex-wrap gap-1 sm:gap-1.5">
-                    ${loadSynonyms(data.synonyms)}
-                  </div>
-                </div>
+    <h1 class="font-bold sm:text-2xl">
+      ${data.word} (<i class="fa-solid fa-microphone-lines"></i> :
+      <span class="Bangla-Font">${data.pronunciation}</span>)
+    </h1>
+    <div class="text-[13px] space-y-1 sm:text-lg sm:space-y-3">
+      <h3 class="font-semibold">Meaning</h3>
+      <h1 class="Bangla-Font">${
+        data.meaning ? data.meaning : `অর্থ পাওয়া যায়নি`
+      }</h1>
+    </div>
+    <div class="text-[13px] space-y-1 sm:text-lg sm:space-y-3">
+      <h5 class="font-semibold">Example</h5>
+      <p>${data.sentence}</p>
+    </div>
+    <div class="text-[13px] space-y-1 sm:text-lg sm:space-y-3">
+      <h5 class="Bangla-Font font-semibold">সমার্থক শব্দগুলো</h5>
+      <div class="flex flex-wrap gap-1 sm:gap-1.5">
+        ${loadSynonyms(data.synonyms)}
+      </div>
+    </div>
   `;
   parent.appendChild(content);
   word_modal.showModal();

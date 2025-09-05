@@ -1,3 +1,11 @@
+const scrollToLearn = () => {
+  document.querySelector(`#Learn`).scrollIntoView({ behavior: "smooth" });
+};
+
+const scrollToFAQ = () => {
+  document.querySelector(`#FAQ`).scrollIntoView({ behavior: "smooth" });
+};
+
 const loadingScreen = (parent) => {
   let loader = document.createElement(`div`);
   loader.className = `flex items-center justify-center my-15`;

@@ -47,10 +47,10 @@
                   tabindex="0"
                   class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-27 p-2 shadow"
                 >
-                  <li>
+                  <li onclick="scrollToFAQ()">
                     <a><i class="fa-regular fa-circle-question"></i> FAQ</a>
                   </li>
-                  <li>
+                  <li onclick="scrollToLearn()">
                     <a><i class="fa-solid fa-book-open"></i> Learn</a>
                   </li>
                   <li>
@@ -69,11 +69,13 @@
             <div class="navbar-end hidden lg:flex">
               <ul class="menu menu-horizontal px-1">
                 <button
+                  onclick="scrollToFAQ()"
                   class="ml-5 btn btn-soft btn-info hover:text-white active:text-white"
                 >
                   <i class="fa-regular fa-circle-question"></i> FAQ
                 </button>
                 <button
+                  onclick="scrollToLearn()"
                   class="ml-5 btn btn-soft btn-info hover:text-white active:text-white"
                 >
                   <i class="fa-solid fa-book-open"></i> Learn
@@ -130,7 +132,10 @@
       </section>
     </header>
     <main>
-      <section class="max-w-7xl w-[97%] mx-auto my-5">
+      <section
+        id="Learn"
+        class="scroll-mt-3 max-w-7xl w-[97%] mx-auto my-5 sm:scroll-mt-11"
+      >
         <h1 class="text-center text-xl font-bold sm:text-3xl">
           <span class="text-[#54dcfc]">Let's</span> Learn Vocabularies
         </h1>
@@ -192,8 +197,114 @@
           </div>
         </dialog>
       </section>
+      <section
+        id="FAQ"
+        class="scroll-mt-3 max-w-7xl w-[97%] mx-auto my-15 sm:my-20 sm:scroll-mt-11"
+      >
+        <h1 class="text-center text-xl font-bold sm:text-3xl">
+          <span class="text-[#54dcfc]">Frequently</span> Asked Questions
+        </h1>
+        <div class="mt-7 sm:mt-11">
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title font-semibold">
+              1. How can I start learning English on this website?
+            </div>
+            <div class="collapse-content text-sm text-[#62748e]">
+              You can start by exploring our beginner lessons, interactive
+              exercises, and quizzes. We also offer structured courses to guide
+              you step by step.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-semibold">
+              2. Is this website free to use?
+            </div>
+            <div class="collapse-content text-sm text-[#62748e]">
+              Yes, the website is free to use. Some advanced features or courses
+              may require payment, but you can access many lessons and exercises
+              without cost.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-semibold">
+              3. Do I need to create an account?
+            </div>
+            <div class="collapse-content text-sm text-[#62748e]">
+              No, you can explore basic lessons without an account. However,
+              creating an account allows you to track your progress, save
+              results, and access personalized learning plans.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-semibold">
+              4. How can I build my English vocabulary?
+            </div>
+            <div class="collapse-content text-sm text-[#62748e]">
+              You can build your vocabulary by practicing with word lists,
+              flashcards, and interactive exercises on the website. Reading
+              lessons, playing quizzes, and reviewing new words regularly will
+              also help improve your vocabulary.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-semibold">
+              5. Do you offer certificates for completed courses?
+            </div>
+            <div class="collapse-content text-sm text-[#62748e]">
+              Yes, certificates are available for certain courses. Once you
+              complete a structured course, you can receive a digital
+              certificate to showcase your achievement.
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer class="bg-[#edf6ff] pt-10 pb-5 px-5 sm:pt-20">
+      <div
+        class="max-w-7xl w-[97%] mx-auto sm:flex sm:justify-between sm:items-end"
+      >
+        <div class="sm:space-y-3">
+          <div class="flex items-center gap-1 font-semibold sm:text-xl">
+            <h1>English</h1>
+            <img src="Images/Logo.png" alt="" />
+            <h1 class="Bangla-Font">জানালা</h1>
+          </div>
+          <p class="Bangla-Font text-[#546a7f] font-semibold sm:text-xl">
+            ইংরেজি শিখুন সহজে
+          </p>
+          <p class="text-[#546a7f] text-[11px] sm:text-base">
+            Providing ED-Tech Applications since 2025
+          </p>
+        </div>
+        <div class="mt-10 mb-5 sm:my-0 sm:space-y-3">
+          <p class="text-[11px] sm:text-base">FOLLOW US</p>
+          <div class="text-xl sm:text-2xl">
+            <i class="fa-brands fa-facebook cursor-pointer"></i>
+            <i class="fa-brands fa-youtube cursor-pointer"></i>
+            <i class="fa-brands fa-instagram cursor-pointer"></i>
+            <i class="fa-brands fa-github cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+      <div class="text-center sm:mt-13">
+        <small>&copy; 2025 English জানালা. All rights reserved.</small>
+      </div>
+    </footer>
     <script src="JS/script.js"></script>
   </body>
 </html>

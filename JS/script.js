@@ -79,7 +79,9 @@ const displayWord = (wordList) => {
                 })" class="btn bg-[#1a91ff1a] border-none rounded-lg">
                   <i class="fa-solid fa-circle-info"></i>
                 </button>
-                <button class="btn bg-[#1a91ff1a] border-none rounded-lg">
+                <button onclick="pronounceWord('${
+                  word.word
+                }')" class="btn bg-[#1a91ff1a] border-none rounded-lg">
                   <i class="fa-solid fa-volume-high"></i>
                 </button>
               </div>
@@ -89,6 +91,12 @@ const displayWord = (wordList) => {
   parent.innerHTML = ``;
   parent.appendChild(container);
 };
+
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN";
+  window.speechSynthesis.speak(utterance);
+}
 
 const loadSynonyms = (synonyms) => {
   if (synonyms.length === 0) {
@@ -136,4 +144,35 @@ const displayWordDetails = (data) => {
   `;
   parent.appendChild(content);
   word_modal.showModal();
+};
+
+document.querySelector(`#Search_Form`).addEventListener(`submit`, (event) => {
+  event.preventDefault();
+  let word = document.querySelector(`#Search_Word`).value;
+  document.querySelector(`#Search_Word`).value = ``;
+  loadAllWord(word);
+});
+
+const loadAllWord = async (word) => {
+  let container = document.querySelector(`#Word_Parent`);
+  container.innerHTML = ``;
+  loadingScreen(container);
+  let res = await fetch(`https://openapi.programming-hero.com/api/words/all`);
+  let json = await res.json();
+  const matchWords = json.data.filter((w) =>
+    w.word.toLowerCase().includes(word.toLowerCase())
+  );
+  if (matchWords.length === 0) {
+    let parent = document.querySelector(`#Word_Parent`);
+    let noWord = document.createElement(`div`);
+    noWord.className = `Bangla-Font text-center my-5 sm:my-10`;
+    noWord.innerHTML = `
+            <img class="mx-auto" src="Images/Alert Error.png" alt="">
+            <h1 class="mt-5 text-xl font-medium sm:text-3xl">কোনো শব্দ পাওয়া যায়নি</h1>
+    `;
+    parent.innerHTML = ``;
+    parent.appendChild(noWord);
+    return;
+  }
+  displayWord(matchWords);
 };
